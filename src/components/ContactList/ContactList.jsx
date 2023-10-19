@@ -1,16 +1,25 @@
-import { Component } from "react";
-// import css from './ContactList.module.css';
+import React from "react";
 
-export default class ContactList extends Component {
-    state = {
-  contacts: [],
-  name: ''
-}
-    handleAddContact = (contacts) => {
-console.log ('contacts:', contacts)
-    }
-    render() {
-        return
-    }
+import Contacten from "../Contacten/Contacten";
 
+
+import { nanoid } from 'nanoid';
+
+
+const ContactList = ({ itemContacts}) => {
+    return (
+        <ul>
+            {itemContacts.map(item => (
+                <Contacten
+                    key={item.nanoid()}
+                    name={item.name}
+                    number={item.number}
+                />
+            ))
+            }
+        </ul>
+    )
 }
+console.log(ContactList);
+export default ContactList;
+

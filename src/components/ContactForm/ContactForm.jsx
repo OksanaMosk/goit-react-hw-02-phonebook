@@ -2,16 +2,19 @@
 
 import React, { Component } from "react";
 import css from './ContactForm.module.css'
+import { nanoid } from 'nanoid';
+
+
 
 export default class ContactForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const name = event.currentTarget.elements.name.value;
         const number = event.currentTarget.elements.number.value;
-        
-        const contacts = {name, number}
+        const key = nanoid();
+        const itemContacts = { name, number, key};
 
-        console.log('Form sucсessfull submitted', contacts);
+this.props.handleAddContact(itemContacts)
     }
     render() {
         return (
@@ -35,6 +38,7 @@ export default class ContactForm extends Component {
             </div>
         )
     }
+
 }
 
 
