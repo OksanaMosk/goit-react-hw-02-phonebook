@@ -11,7 +11,7 @@ const ContactList = ({ itemContacts}) => {
         <ul>
             {itemContacts.map(item => (
                 <Contacten
-                    key={item.nanoid()}
+                    key={nanoid()}
                     name={item.name}
                     number={item.number}
                 />

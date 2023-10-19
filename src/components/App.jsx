@@ -1,7 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
-import Contacten from "./Contacten/Contacten";
+
 import css from './App.module.css'
 
 
