@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
+      <ContactForm/>
       <ContactList/>
     </div>
   );

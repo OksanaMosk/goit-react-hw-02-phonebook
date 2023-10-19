@@ -10,9 +10,7 @@ export default class ContactList extends Component {
 console.log ('contacts:', contacts)
     }
     render() {
-        return (
-         <ContactList handleAddContact={this.handleAddContact} />
-     )
+        return
     }
 
 }
