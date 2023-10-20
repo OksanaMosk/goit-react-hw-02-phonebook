@@ -1,6 +1,6 @@
 
 
-import React, { Component } from "react";
+import React from "react";
 import css from './ContactForm.module.css'
 import { nanoid } from 'nanoid';
 
@@ -13,38 +13,58 @@ class ContactForm extends React.Component {
         number: ''
     };
     
-    key = nanoid();
+    nameInputId = nanoid();
+    numberInputId = nanoid();
     
-    handleInputChange = e => {
-        const { name, value } = e.currentTarget;
-        this.setState = ({ [name]: value });
-    };
-
-
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
+
         this.props.onSubmit({ name: this.state.name, number: this.state.number });
         this.reset();
-    }
+    };
+    
+
+
+ handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState ({ [name]: value });
+    };
 
     reset = () => {
-        this.setState({name: '', number: ''})
-    }
+        this.setState({ number: '', name: '' });
+    };
+
+   
     
     render() {
         return (
             <div className={css.contactForm}>
                 <form className={css.form} onSubmit={this.handleSubmit}>
-                    <label>
+                    <label htmlFor={this.nameInputId}>
                         <p>Name
                         </p>
-                        <input type="text" value={this.state.name} onChange={this.handleInputChange} className={css.formInput} name="name"required>
+                        <input type="text"
+                            name="name"
+                            id={this.nameInputId}
+                            value={this.state.name}
+                            onChange={this.handleInputChange}
+                            className={css.formInput}
+                            placeholder="Name"
+                            required>
                         </input>
                     </label>
-                      <label>
+                      <label htmlFor={this.numberInputId}>
                         <p>Number
                         </p>
-                        <input type="tel"value={this.state.number} onChange={this.handleInputChange} className={css.formInput} name="number" required>
+                        <input type="tel"
+                            name="number"
+                            id={this.numberInputId}
+                            value={this.state.number}
+                            onChange={this.handleInputChange}
+                            className={css.formInput} 
+                            pattern="[0-9]{10}"
+                            placeholder="(000)-000-00-00"
+                            required>
                         </input>
                     </label>
                     <button type="submit" className={css.submitButton}>Add contact  

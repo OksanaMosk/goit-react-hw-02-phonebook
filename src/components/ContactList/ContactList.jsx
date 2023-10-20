@@ -1,25 +1,26 @@
 import React from "react";
 
-import Contacten from "../Contacten/Contacten";
+
+import ContactElement from "../ContactElement/ContactElement";
 
 
-import { nanoid } from 'nanoid';
 
 
-const ContactList = ({ itemContacts}) => {
-    return (
-        <ul>
-            {itemContacts.map(item => (
-                <Contacten
-                    key={nanoid()}
-                    name={item.name}
-                    number={item.number}
-                />
-            ))
-            }
-        </ul>
-    )
-}
+
+  const ContactList = ({ contacts, onRemoveContact }) => (
+  <ul>
+      {contacts.map(({ name, number, id }) => (
+        <ContactElement
+          key={id}
+          name={name}
+          number={number}
+          id={id}
+          onRemoveContact={onRemoveContact}
+        />
+    ))}
+  </ul>
+);
+
 console.log(ContactList);
 export default ContactList;
 
