@@ -6,18 +6,31 @@ import { nanoid } from 'nanoid';
 
 
 
-export default class ContactForm extends Component {
+class ContactForm extends React.Component {
+
+    state = {
+        name: '',
+        number: ''
+    };
+    
+    key = nanoid();
+    
+    handleInputChange = e => {
+        const { name, value } = e.currentTarget;
+        this.setState = ({ [name]: value });
+    };
+
+
     handleSubmit = (event) => {
         event.preventDefault();
-        const form = event.currentTarget;
-        const name = event.currentTarget.elements.name.value;
-        const number = event.currentTarget.elements.number.value;
-        const key = nanoid();
-        const itemContacts = { name, number, key};
-
-        this.props.handleAddContact(itemContacts);
-        form.reset();
+        this.props.onSubmit({ name: this.state.name, number: this.state.number });
+        this.reset();
     }
+
+    reset = () => {
+        this.setState({name: '', number: ''})
+    }
+    
     render() {
         return (
             <div className={css.contactForm}>
@@ -25,13 +38,13 @@ export default class ContactForm extends Component {
                     <label>
                         <p>Name
                         </p>
-                        <input type="text" className={css.formInput} name="name"required>
+                        <input type="text" value={this.state.name} onChange={this.handleInputChange} className={css.formInput} name="name"required>
                         </input>
                     </label>
                       <label>
                         <p>Number
                         </p>
-                        <input type="tel" className={css.formInput} name="number" required>
+                        <input type="tel"value={this.state.number} onChange={this.handleInputChange} className={css.formInput} name="number" required>
                         </input>
                     </label>
                     <button type="submit" className={css.submitButton}>Add contact  
@@ -44,4 +57,4 @@ export default class ContactForm extends Component {
 }
 
 
-
+export default ContactForm;
