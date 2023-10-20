@@ -8,13 +8,15 @@ import css from './App.module.css'
 export default class App extends React.Component {
 
 state = {
-
-  name: '',
-  number: ''
-}
+    contactelements: this.itemContacts,
+  }
+ 
 
    handleAddContact=(itemContacts) => {
-console.log ("itemContacts:", itemContacts)
+     console.log("itemContacts:", itemContacts)
+     if (this.state.contactelements.some((contact) => contact.name === this.itemContacts.name)) {
+  alert ('oops!')
+}
   }
 
 

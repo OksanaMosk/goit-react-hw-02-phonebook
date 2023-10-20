@@ -9,12 +9,14 @@ import { nanoid } from 'nanoid';
 export default class ContactForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
+        const form = event.currentTarget;
         const name = event.currentTarget.elements.name.value;
         const number = event.currentTarget.elements.number.value;
         const key = nanoid();
         const itemContacts = { name, number, key};
 
-this.props.handleAddContact(itemContacts)
+        this.props.handleAddContact(itemContacts);
+        form.reset();
     }
     render() {
         return (
