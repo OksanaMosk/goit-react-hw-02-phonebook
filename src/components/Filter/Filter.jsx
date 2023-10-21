@@ -1,15 +1,17 @@
+
 import React from 'react';
 
+import css from './Filter.module.css';
 
-// Компонент фильтрации контактов
 function Filter({ value, onChangeFilter }) {
   return (
-    <form>
-      <label>
+    <form className={css.formlFind}>
+      <label className={css.labelFind}>
         Find contacts by name
-        <input type="text" value={value} onChange={onChangeFilter} />
+        <input className={css.inputFind} type="text" value={value} onChange={onChangeFilter} />
       </label>
     </form>
   );
-}
+};
+
 export default Filter;

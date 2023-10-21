@@ -1,0 +1,15 @@
+.contactContainer {
+  width: auto;
+  height: auto;
+  margin: 0, auto;
+}
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(45, 68, 93);
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}

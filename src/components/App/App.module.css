@@ -16,3 +16,30 @@
 .title:focus {
   color: rgb(102, 135, 173);
 }
+
+.titleContacts {
+  margin: 0, auto;
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(73, 83, 95);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 36px;
+}
+
+.titleContacts:hover,
+.titleContacts:focus {
+  color: rgb(102, 135, 173);
+}
+
+.noContacts {
+  margin: 0, auto;
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(73, 83, 95);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 36px;
+}
+.noContacts:hover,
+.noContacts:focus {
+  color: rgb(102, 135, 173);
+}

@@ -1,0 +1,26 @@
+.labelFind {
+  padding-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgb(45, 68, 93);
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.inputFind {
+  padding-right: 30px;
+  background-color: rgb(200, 203, 226);
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid rgb(56, 76, 99);
+}
+
+.inputFind ::placeholder {
+  color: rgb(45, 68, 93);
+  font-size: 20px;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
+}

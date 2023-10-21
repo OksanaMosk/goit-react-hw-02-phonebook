@@ -1,14 +1,14 @@
 
+import css from './ContactElement.module.css';
 
 const ContactElement = ({ id, name, number, onRemoveContact }) => {
 
   return (
       
   <li key={id}>
-          <p>{name + ':'}</p>
-          <p>{number}</p>
+          <p>{name + ':  ' + number}</p>
         {
-          <button
+          <button className={css.buttonDelete}
             type="button"
             name="delete"
             onClick={() => onRemoveContact(id)}

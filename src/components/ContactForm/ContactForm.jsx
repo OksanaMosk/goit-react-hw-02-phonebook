@@ -13,10 +13,9 @@ class ContactForm extends React.Component {
         number: ''
     };
     
-    nameInputId = nanoid();
-    numberInputId = nanoid();
+   
     
-    handleSubmit = event => {
+ handleSubmit = event => {
         event.preventDefault();
 
         this.props.onSubmit({ name: this.state.name, number: this.state.number });
@@ -34,14 +33,15 @@ class ContactForm extends React.Component {
         this.setState({ number: '', name: '' });
     };
 
-   
+    nameInputId = nanoid();
+    numberInputId = nanoid();
     
     render() {
         return (
             <div className={css.contactForm}>
                 <form className={css.form} onSubmit={this.handleSubmit}>
                     <label htmlFor={this.nameInputId}>
-                        <p>Name
+                        <p className={css.inputName}>Name
                         </p>
                         <input type="text"
                             name="name"
@@ -54,7 +54,7 @@ class ContactForm extends React.Component {
                         </input>
                     </label>
                       <label htmlFor={this.numberInputId}>
-                        <p>Number
+                        <p className={css.inputName}>Number
                         </p>
                         <input type="tel"
                             name="number"
@@ -73,8 +73,7 @@ class ContactForm extends React.Component {
             </div>
         )
     }
-
-}
+};
 
 
 export default ContactForm;

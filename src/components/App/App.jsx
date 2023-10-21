@@ -1,15 +1,15 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import ContactForm from "../ContactForm/ContactForm";
+import Filter from "../Filter/Filter";
 import ContactList from "../ContactList/ContactList";
 
-import Filter from "../Filter/Filter";
 import { nanoid } from 'nanoid';
 
 import css from './App.module.css'
 
 
 class App extends Component {state = {
-    contacts: [
+contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
       { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
@@ -18,12 +18,13 @@ class App extends Component {state = {
 filter: '',
   };
 
+
+
   handleAddContact = (contact) => {
     const isContacts = this.state.contacts.some(
       ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
     );
   
-    console.log("isInContacts:", { isContacts })
 
     if (isContacts) {
       alert(`${contact.name} is already in contacts`);
@@ -34,17 +35,7 @@ filter: '',
     }));
   }
   
-
-
-
-changeFilter = event => {
-    this.setState({ filter: event.target.value });
-  };
-
-
-
-
-  visibleContacts = () => {
+ visibleContacts = () => {
     const { filter, contacts } = this.state;
 
     const normalizedFilter = filter.toLowerCase();
@@ -55,30 +46,34 @@ changeFilter = event => {
   };
 
 
-  removeContact = contactId => {
+
+changeFilter = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+
+removeContact = contactId => {
     this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(({ id }) => id !== contactId),
+  return {
+   contacts: prevState.contacts.filter(({ id }) => id !== contactId),
       };
     });
   };
 
 
-
   render() {
-    const visContacts = this.visibleContacts();
-    
     const { filter } = this.state;
+    const visContacts = this.visibleContacts();
 
-    return (
+  return (
     <div className={css.container}>
             <h1 className={css.title}>Phonebook</h1>
         <ContactForm onSubmit ={this.handleAddContact} />
-            <h2>Contacts</h2>
+            <h2 className={css.titleContacts}>Contacts</h2>
            {this.state.contacts.length > 0 ? (
         <Filter value={filter} onChangeFilter={this.changeFilter} />
               ) : (
-           <p>&#128064;Add your first contact! Your phonebook is empty.&#128064;</p>
+          <p className={css.noContacts}>&#128064;Add your first contact! Your phonebook is empty.&#128064;</p>
                )}
               {this.state.contacts.length > 0 && (
         <ContactList
@@ -87,10 +82,8 @@ changeFilter = event => {
           />
         )}
     </div>
-
     )
   }
-
 };
 
 export default App;

@@ -6,29 +6,27 @@
 }
 
 .form {
-  padding-left: 40px;
+  padding-left: 50px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   background-color: rgb(45, 68, 93);
   justify-content: center;
   align-items: flex-start;
-  width: 300px;
-  height: 400px;
+  width: 270px;
+  height: 350px;
   border-radius: 30px;
 }
 
-p {
-  color: rgb(45, 68, 93);
+.inputName {
+  color: rgb(200, 203, 226);
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
 }
 
-p:hover,
-p:focus {
+.inputName:hover,
+.inputName:focus {
   color: rgb(102, 135, 173);
 }
-
 .formInput {
   background-color: rgb(200, 203, 226);
   color: rgb(45, 68, 93);
@@ -42,7 +40,14 @@ p:focus {
 }
 .formInput:hover,
 .formInput:focus {
-  background-color: rgb(190, 194, 226);
+  background-color: rgb(174, 178, 209);
+}
+
+.formInput::placeholder {
+  color: rgb(45, 68, 93);
+  font-size: 20px;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .submitButton {
@@ -64,5 +69,5 @@ p:focus {
 .submitButton:hover,
 .submitButton:focus {
   background-color: rgb(92, 119, 151);
-  color: rgb(200, 203, 226);
+  color: rgb(56, 76, 99);
 }

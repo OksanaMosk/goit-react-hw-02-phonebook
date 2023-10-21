@@ -1,14 +1,12 @@
 import React from "react";
-
-
 import ContactElement from "../ContactElement/ContactElement";
 
+import css from './ContactList.module.css';
 
 
-
-
-  const ContactList = ({ contacts, onRemoveContact }) => (
-  <ul>
+const ContactList = ({ contacts, onRemoveContact }) => (
+  <div className={css.contactContainer}>
+  <ul className={css.contactList}>
       {contacts.map(({ name, number, id }) => (
         <ContactElement
           key={id}
@@ -18,9 +16,9 @@ import ContactElement from "../ContactElement/ContactElement";
           onRemoveContact={onRemoveContact}
         />
     ))}
-  </ul>
+    </ul>
+  </div>
 );
 
-console.log(ContactList);
 export default ContactList;
 
