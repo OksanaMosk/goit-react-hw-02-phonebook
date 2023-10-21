@@ -62,8 +62,8 @@ class ContactForm extends React.Component {
                             value={this.state.number}
                             onChange={this.handleInputChange}
                             className={css.formInput} 
-                            pattern="[0-9]{10}"
-                            placeholder="(000)-000-00-00"
+                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                            placeholder="000-00-00"
                             required>
                         </input>
                     </label>
